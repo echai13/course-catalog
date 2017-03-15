@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  resources :courses, :subjects, :instructors
-  get 'signup', to: 'users#new'
+  resources :users
 
+  root 'static_pages#home'
+  get 'sessions/new'
+  get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  get 'courses', to:'courses#index'
+  get 'instructors', to: 'instructors#index'
+  get 'subjects', to: 'subjects#index'
 
 end
