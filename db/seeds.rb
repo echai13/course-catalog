@@ -16,7 +16,7 @@ end
 json = JSON.parse(File.read('db/course.json'))
 
 json.each do |a|
-  Course.create(:name => a["name"], :description => a["description"], :coursecode => a["code"])
+  Course.create(:name => a["name"], :description => a["description"], :coursecode => a["code"], :subjectid => a["subjects"][0]["id"])
 end
 
 

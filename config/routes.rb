@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   resources :users
 
   root 'static_pages#home'
@@ -11,5 +13,6 @@ Rails.application.routes.draw do
   get 'courses', to:'courses#index'
   get 'instructors', to: 'instructors#index'
   get 'subjects', to: 'subjects#index'
+  get '/search', to: 'static_pages#search'
 
 end
