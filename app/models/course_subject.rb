@@ -4,11 +4,11 @@ class CourseSubject < ApplicationRecord
 
   def self.search(search1, search2)
     if search2.blank?
-      CourseSubject.where("coursename ILIKE ?", "%#{search1}%")
+      CourseSubject.where("LOWER(coursename) LIKE ?", "%#{search1.downcase}%")
     elsif search1.blank?
-      CourseSubject.where("subject_id ILIKE ?", "%#{search2}%")
+      CourseSubject.where("LOWER(subject_id) ILIKE ?", "%#{search2.downcase}%")
     else
-      CourseSubject.where("coursename ILIKE ? AND subject_id ILIKE ?", "%#{search1}%", "%#{search2}%")
+      CourseSubject.where("LOWER(coursename) LIKE ? AND LOWER(subject_id) LIKE ?", "%#{search1.downcase}%", "%#{search2.downcase}%")
     end
   end
 
