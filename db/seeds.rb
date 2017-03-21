@@ -26,10 +26,6 @@ json.each do |a|
   Subject.create(:name => a["name"], :subjectid => a["id"])
 end
 
-Course.all.each do |c|
-  CourseSubject.create!(:course_id => c.id, :subject_id => Subject.all.find_by_subjectid(c.subjectid))
-end
-
 
 Course.all.each do |c|
   Subject.all.each do |s|
