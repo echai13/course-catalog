@@ -1,5 +1,13 @@
-<h1>StaticPages#search</h1>
-<%= form_tag(courses_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
-<%= submit_tag "Search", :name => nil %>
-<% end %>
+<h1>Search for a course</h1>
+<p class="jumbotron"> Please enter a search term and/or subject </p>
+<div class="container">
+  <div class="search-course">
+  <%= form_tag(course_subject_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
+  <%= select_tag :search2, options_from_collection_for_select(Subject.all, :id, :name), {:include_blank => 'Select Subject'} %>
+
+  <%= submit_tag "Search", :name => nil %>
+
+  <% end %>
+  </div>
+</div>

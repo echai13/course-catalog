@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<% if logged_in? %>
+<h1>Enrolled Courses</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Course Names</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Enrollment.all.each do |enrollment| %>
+    <% if enrollment.user_id == session[:user_id] %>
+    <tr>
+      <td><%= Course.all.find_by_id(enrollment.course_id).name %></td>
+      <td><%= Course.all.find_by_id(enrollment.course_id).description %></td>
+      <td><%= Course.all.find_by_id(enrollment.course_id).coursecode%></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<%= render :file => 'static_pages/home'%>
+<% end %>
