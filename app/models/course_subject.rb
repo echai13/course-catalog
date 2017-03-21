@@ -8,7 +8,7 @@ class CourseSubject < ApplicationRecord
     elsif search1.blank?
       CourseSubject.where("subject_id LIKE ?", "%#{search2}%")
     else
-      CourseSubject.where("LOWER(coursename) LIKE ? AND subject_id LIKE ?", "%#{search1}%", "%#{search2.downcase}%")
+      CourseSubject.where("LOWER(coursename) LIKE ? AND subject_id LIKE ?", "%#{search1.downcase}%", "%#{search2}%")
     end
   end
 
