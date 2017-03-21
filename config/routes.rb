@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :users, :enrollments
 
+  root 'enrollments#show'
 
-  resources :users
+  get 'course_subject/', to: 'course_subject#show'
+  get 'enrollments/', to: 'enrollments#new'
+  post 'enrollments/', to: 'enrollments#create'
 
-  root 'static_pages#home'
   get 'sessions/new'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
@@ -14,5 +17,6 @@ Rails.application.routes.draw do
   get 'instructors', to: 'instructors#index'
   get 'subjects', to: 'subjects#index'
   get '/search', to: 'static_pages#search'
+  get '/home', to: 'static_pages#home'
 
 end
