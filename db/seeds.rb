@@ -30,7 +30,7 @@ end
 Course.all.each do |c|
   Subject.all.each do |s|
     if c.subjectid == s.subjectid
-      CourseSubject.create!(:course_id => c.id, :subject_id => s.id, :coursename => c.name)
+      CourseSubject.create!(:course_id => c.id, :subject_id => s.id, :coursename => c.name, :subjectid => s.subjectid)
     end
   end
 end
