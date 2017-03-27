@@ -1,0 +1,24 @@
+<h1>Search Results</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description </th>
+      <th>Course Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coursesubject.each do |course| %>
+        <tr>
+          <td><%= course.coursename %></td>
+          <td><%= Course.all.find_by_id(course.course_id).description %></td>
+          <td><%= Course.all.find_by_id(course.course_id).coursecode %></td>
+          <td><%= link_to "Enroll", enrollments_path(:course_id => course.id), :method => :post, class: "btn btn-lg btn-primary" %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @coursesubject %>
+<br>

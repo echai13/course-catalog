@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   root 'enrollments#show'
 
-  get 'course_subject/', to: 'course_subject#show'
-  get 'enrollments/', to: 'enrollments#new'
-  post 'enrollments/', to: 'enrollments#create'
+  get '/course_subject', to: 'course_subject#index'
+  get '/enrollments', to: 'enrollments#new'
+  post '/enrollments', to: 'enrollments#create'
 
   get 'sessions/new'
   get '/signup', to: 'users#new'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'courses', to:'courses#index'
   get 'instructors', to: 'instructors#index'
   get 'subjects', to: 'subjects#index'
-  get '/search', to: 'static_pages#search'
+  get '/search', to: 'course_subject#index'
   get '/home', to: 'static_pages#home'
 
 end

@@ -15,3 +15,14 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $("#coursesubject").on("click", " .pagination a", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#search-form input#search").keyup(function() {
+    $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
+    return false;
+  });
+});
