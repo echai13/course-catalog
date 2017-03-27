@@ -11,17 +11,19 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
 
+
 $(function() {
-  $("#coursesubject").on("click", " .pagination a", function() {
+  $(document).on('page:load', "click", " .pagination a", function() {
     $.getScript(this.href);
     return false;
   });
-  $("#search-form").on("keyup", "input#search", function() {
+  $(document).on("keyup", "input#search", function() {
     $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
     return false;
   });
