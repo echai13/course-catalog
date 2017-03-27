@@ -18,7 +18,7 @@
 //= require_tree .
 
 
-$(function() {
+var loaded =  $(function() {
   $(document).on('page:load', "click", " .pagination a", function() {
     $.getScript(this.href);
     return false;
@@ -28,3 +28,4 @@ $(function() {
     return false;
   });
 });
+$(document).on("page:load ready", loaded);
