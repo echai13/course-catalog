@@ -4,7 +4,7 @@ class CourseSubject < ApplicationRecord
 
   def self.search(search1, search2)
     if search1.blank? && search2.blank?
-      CourseSubject.all
+      return
     elsif search2.blank?
       CourseSubject.where("LOWER(coursename) LIKE ?", "%#{search1.downcase}%")
     elsif search1.blank?

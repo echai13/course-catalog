@@ -19,11 +19,15 @@
 
 
 var loaded =  $(function() {
-  $(document).on('page:load', "click", " .pagination a", function() {
+  $(document).on("click", "#coursesubject .pagination a", function() {
     $.getScript(this.href);
     return false;
   });
   $(document).on("keyup", "input#search", function() {
+    $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
+    return false;
+  });
+  $(document).on("change", "select#search2", function() {
     $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
     return false;
   });

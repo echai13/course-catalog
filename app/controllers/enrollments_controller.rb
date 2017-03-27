@@ -8,7 +8,11 @@ class EnrollmentsController < ApplicationController
     @enrollment.save
   end
 
-  def show
+
+  def destroy
+    @enrollment = Enrollment.find(params[:id])
+    @enrollment.destroy
+    redirect_to root_path
   end
 
 end

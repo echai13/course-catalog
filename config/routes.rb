@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/course_subject', to: 'course_subject#index'
   get '/enrollments', to: 'enrollments#new'
   post '/enrollments', to: 'enrollments#create'
+  delete '/enrollments', to: 'enrollments#destroy'
 
   get 'sessions/new'
   get '/signup', to: 'users#new'

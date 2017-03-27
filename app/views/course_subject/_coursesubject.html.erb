@@ -15,7 +15,7 @@
           <td><%= course.coursename %></td>
           <td><%= Course.all.find_by_id(course.course_id).description %></td>
           <td><%= Course.all.find_by_id(course.course_id).coursecode %></td>
-          <td><%= link_to "Enroll", enrollments_path(:course_id => course.id), :method => :post, class: "btn btn-lg btn-primary" %></td>
+          <td><%= link_to "Enroll", enrollments_path(:course_id => course.id), :method => "post", class: "btn btn-lg btn-primary" %></td>
         </tr>
     <% end %>
   </tbody>

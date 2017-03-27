@@ -17,6 +17,7 @@
       <td><%= Course.all.find_by_id(enrollment.course_id).name %></td>
       <td><%= Course.all.find_by_id(enrollment.course_id).description %></td>
       <td><%= Course.all.find_by_id(enrollment.course_id).coursecode%></td>
+      <td><%= link_to "Unenroll", enrollment, :method => "delete", class: "btn btn-lg btn-primary" %></td>
     </tr>
     <% end %>
     <% end %>
