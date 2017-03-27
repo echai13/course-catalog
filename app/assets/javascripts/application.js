@@ -27,7 +27,7 @@ var loaded =  $(function() {
     $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
     return false;
   });
-  $(document).on("click", "select#search2", function() {
+  $(document).on("change", "select#search2", function() {
     $.get($("#search-form").attr("action"), $("#search-form").serialize(), null, "script");
     return false;
   });
