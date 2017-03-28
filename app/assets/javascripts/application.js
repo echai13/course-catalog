@@ -17,8 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
-
-var loaded =  $(function() {
+$(document).on('turbolinks:load', function(){
   $(document).on("click", "#coursesubject .pagination a", function() {
     $.getScript(this.href);
     return false;
@@ -32,4 +31,3 @@ var loaded =  $(function() {
     return false;
   });
 });
-$(document).on("page:load ready", loaded);
